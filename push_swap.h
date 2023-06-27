@@ -1,4 +1,3 @@
-#include <unistd.h>
 #include "check_validation.c"
 
 typedef struct s_node
@@ -7,3 +6,6 @@ typedef struct s_node
     struct s_node  *next;
     struct s_node  *prev;
 } t_node;
+
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648

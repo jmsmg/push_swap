@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-static char	**ft_free(char **ptr)
+char	**ft_free(char **ptr)
 {
 	int	i;
 
