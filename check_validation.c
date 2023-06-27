@@ -2,27 +2,23 @@
 
 int ft_check_number(char *word)
 {
-    int i;
-    int sign;
+    int     sign;
+    size_t  i;
 
     i = 0;
     sign = 0;
-    while (word[i] == '-' && word[i] == '+')
+    while (word[i] == '-' || word[i] == '+')
     {
-        if (word[i] == '-' || word[i] == '+')
-        {
-            sign += 1;
-        }
+        sign += 1;
         i++;
     }
-    while (word[i])
-    {
-        
-    }
+    while (ft_isdigit(word[i]))
+        i++;
+    if (ft_strlen(word) != i || 1 < sign || 11 < i)
+        return (0);
+    i = 0;
     if (ft_atoi(word[i]) > -2147483648 && 2147483647 < ft_atoi(word[i]))
-    {
-        // 예외
-    }
+        return (0);
     return (1);
 }
 
@@ -39,8 +35,10 @@ int ft_check_validation(int argc, char **argv)
         j = 0;
         while (word[j])
         {
-            ft_check_number(word[j]);
-
+            if (ft_check_number(word[j]))
+            {
+                
+            }
             j++;
         }
         i++;

@@ -46,5 +46,5 @@ int	t_atoi(const char *str)
 
 int main()
 {
-    printf("%d", t_atoi("21one"));
+    printf("%d", t_atoi("-2-"));
 }
