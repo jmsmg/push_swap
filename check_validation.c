@@ -22,12 +22,12 @@ int ft_check_number(char *word)
     return (1);
 }
 
-int ft_check_validation(int argc, char **argv)
+int ft_check_validation(int argc, char **argv, t_node node)
 {
     int     i;
     int     j;
     char    **word;
-
+    
     i = 1;
     while (i < argc)
     {
@@ -37,8 +37,8 @@ int ft_check_validation(int argc, char **argv)
         {
             if (!ft_check_number(word[j]))
             {
-                ft_free(word);
-                // list 풀어주기
+                word = ft_free(word);
+                ft_clear_node(node);
                 return (0);
             }
             j++;

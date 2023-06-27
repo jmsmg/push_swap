@@ -19,9 +19,11 @@ char	**ft_free(char **ptr)
 	while (ptr[i])
 	{
 		free(ptr[i]);
+		ptr[i] = NULL;
 		i++;
 	}
 	free(ptr);
+	ptr = NULL;
 	return (0);
 }
 
