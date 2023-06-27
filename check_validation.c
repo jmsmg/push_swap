@@ -1,30 +1,27 @@
 #include "push_swap.h"
 
-int ft_check_number(char *num)
+int ft_check_number(char *word)
 {
-    int     i;
-    int     j;
-    int     k;
-    char    word[13];
+    int i;
+    int sign;
 
     i = 0;
-    while (num[i])
+    sign = 0;
+    while (word[i] == '-' && word[i] == '+')
     {
-        j = 0;
-        while (num[i] && num[i] != ' ')
-            j++;
-        k = 0;
-        while (k < j && j < 13)
+        if (word[i] == '-' || word[i] == '+')
         {
-            word[k] = num[i + k];
-            k++;
-        }
-        wort[k] = '\0';
-        if (ft_atoi(word) < -2147483648 || 2147483647 < ft_atoi(word))
-        {
-            return (0);
+            sign += 1;
         }
         i++;
+    }
+    while (word[i])
+    {
+        
+    }
+    if (ft_atoi(word[i]) > -2147483648 && 2147483647 < ft_atoi(word[i]))
+    {
+        // 예외
     }
     return (1);
 }
@@ -32,15 +29,20 @@ int ft_check_number(char *num)
 int ft_check_validation(int argc, char **argv)
 {
     int     i;
-    int     result;
-    char    *num;
+    int     j;
+    char    **word;
 
-    i = 0;
-    result = 0;
+    i = 1;
     while (i < argc)
     {
-        num = argv[i];
-        result = ft_check_number(num);
+        word = ft_split(argv[i], ' ');
+        j = 0;
+        while (word[j])
+        {
+            ft_check_number(word[j]);
+
+            j++;
+        }
         i++;
     }
     return (1);

@@ -8,6 +8,6 @@ int main(int argc, char *argv[])
     }
     else
     {
-        write(1, "Error\n", 6);
+        write(1, "Error\n", 6);w
     }
 }
