@@ -23,7 +23,6 @@ char	**ft_free(char **ptr)
 		i++;
 	}
 	free(ptr);
-	ptr = NULL;
 	return (0);
 }
 

@@ -14,7 +14,7 @@ int ft_check_number(char *word)
     }
     while (ft_isdigit(word[i]))
         i++;
-    if (ft_strlen(word) != i || 1 < sign || 11 < i)
+    if (ft_strlen(word) == 0 || ft_strlen(word) != i || 1 < sign || 11 < i)
         return (0);
     i = 0;
     if (ft_atoi(word[i]) > INT_MIN && INT_MAX < ft_atoi(word[i]))
@@ -22,7 +22,7 @@ int ft_check_number(char *word)
     return (1);
 }
 
-int ft_check_validation(int argc, char **argv, t_node node)
+int ft_check_validation(int argc, char **argv)
 {
     int     i;
     int     j;
@@ -38,14 +38,12 @@ int ft_check_validation(int argc, char **argv, t_node node)
             if (!ft_check_number(word[j]))
             {
                 word = ft_free(word);
-                ft_clear_node(node);
                 return (0);
             }
             j++;
-            // list에 집어넣기;
         }
+        word = ft_free(word);
         i++;
-        ft_free(word);
     }
     return (1);
 }
