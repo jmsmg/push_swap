@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:44 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/12 09:01:48 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/14 10:32:13 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
-int	t_atoi(const char *str)
+long long	t_atoi(const char *str)
 {
 	int		i;
 	int		sign;
@@ -58,5 +58,5 @@ int	t_atoi(const char *str)
 
 int main()
 {
-    printf("%d", t_atoi("-2-"));
+    printf("%lld", t_atoi("-2147483649"));
 }
