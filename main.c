@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:36 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/14 13:09:46 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/14 13:55:06 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 
 int main(int argc, char *argv[])
 {
-	t_node	*a_stack;
-	t_node	*b_stack;
+	t_lst *stack;
 
-	if (1 < argc && ft_check_validation(argc, argv))
-	{
-		a_stack = ft_input_arg(argc, argv);
-		if (!a_stack)
-		{
-			// malloc 실패
-		}
-		// 자료 조작
-		write(1, "OK", 2);
-	}
-	else
+	if (argc < 2 && !ft_check_validation(argc, argv))
 	{
 		write(1, "Error\n", 6);
-		// free(node);
-		// node = NULL;
 	}
+
+	stack->a_head = ft_input_arg(argc, argv);
+	if (!(stack->a_head))
+	{
+		// malloc 실패
+	}
+
+	// 자료 조작
+	write(1, "OK", 2);
 }
+
