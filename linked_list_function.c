@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:26 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/14 10:33:56 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/14 13:06:46 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_node	*ft_created_node(int data)
 	return (new_node);
 }
 
-void	ft_add_next_node(t_node **head, int data)
+int	ft_add_next_node(t_node **head, int data)
 {
 	t_node	*new_node;
 	t_node	*tail;
@@ -37,12 +37,13 @@ void	ft_add_next_node(t_node **head, int data)
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 	{
-		return (NULL);
+		return (0);
 	}
 	tail->next = new_node;
 	new_node->prev = tail;
 	new_node->next = (*head);
 	(*head)->prev = new_node;
+	return (1);
 }
 
 void	ft_delete_node(t_node *node)

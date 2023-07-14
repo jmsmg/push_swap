@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:36 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/14 10:20:26 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/14 13:09:46 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ int main(int argc, char *argv[])
 
 	if (1 < argc && ft_check_validation(argc, argv))
 	{
-		// vailcheck 중복??
-
-		// ascii -> int
-		// 자료 삽입
 		a_stack = ft_input_arg(argc, argv);
+		if (!a_stack)
+		{
+			// malloc 실패
+		}
 		// 자료 조작
-
-		printf("OK");
+		write(1, "OK", 2);
 	}
 	else
 	{
