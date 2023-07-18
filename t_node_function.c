@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_list_function.c                             :+:      :+:    :+:   */
+/*   t_node_function.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:26 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/14 13:06:46 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/18 09:26:19 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*ft_created_node(int data)
+void	ft_clear_node(t_node **node, void (*del)(t_node *cur))
 {
-	t_node	*new_node;
+	t_node	*tmp;
 
-	new_node = (t_node *)malloc(sizeof(t_node));
-	if (!new_node)
+	tmp = *node;
+	if (*node)
 	{
-		return (NULL);
+		return ;
 	}
-	new_node->prev = new_node;
-	new_node->data = data;
-	new_node->next = new_node;
-	return (new_node);
+	while (tmp->next == NULL)
+	{
+		*node = (*node)->next;
+		del(tmp);
+		tmp = *node;
+	}
+}
+
+void	ft_delete_node(t_node *node)
+{
+	node->prev->next = node->next;
+	node->next->prev = node->prev;
+	node->data = 0;
+	node->prev = NULL;
+	node->next = NULL;
+	free(node);
+	node = NULL;
 }
 
 int	ft_add_next_node(t_node **head, int data)
@@ -46,8 +59,17 @@ int	ft_add_next_node(t_node **head, int data)
 	return (1);
 }
 
-void	ft_delete_node(t_node *node)
+t_node	*ft_created_node(int data)
 {
-	free(node);
-}
+	t_node	*new_node;
 
+	new_node = (t_node *)malloc(sizeof(t_node));
+	if (!new_node)
+	{
+		return (NULL);
+	}
+	new_node->prev = new_node;
+	new_node->data = data;
+	new_node->next = new_node;
+	return (new_node);
+}

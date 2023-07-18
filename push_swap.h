@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:40 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/14 13:47:33 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/18 09:27:46 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-typedef struct s_lst
+typedef struct s_info
 {
 	int				a_len;
 	struct s_node	*a_head;
 	int				b_len;
 	struct s_node	*b_head;
-}	t_lst;
+}	t_info;
 #endif
