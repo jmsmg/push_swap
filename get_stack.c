@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 08:04:35 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/18 10:25:42 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/18 10:42:42 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_node	*ft_input_arg(int argc, char **argv)
 	int		i;
 	t_node	*node;
 
-	node = ft_created_node(ft_atoi(argv[1]));
+	node = ft_created_node(ft_atoi(argv[argc - 1]));
 	if (!node)
 	{
 		return (NULL);
@@ -25,7 +25,7 @@ t_node	*ft_input_arg(int argc, char **argv)
 	i = 2;
 	while (i < argc)
 	{
-		if (!ft_add_next_node(node, ft_atoi(argv[i])))
+		if (!ft_add_next_node(node, ft_atoi(argv[argc - i - 2])))
 		{
 			ft_clear_node(&node, ft_delete_node());
 			node = NULL;

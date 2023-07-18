@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:36 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/18 10:25:19 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/18 10:47:25 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int main(int argc, char *argv[])
 	}
 
 	// 자료 조작
-	write(1, "OK", 2);
+	write(1, "\n", 1);
 }
 
