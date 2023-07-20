@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 14:42:45 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/20 14:56:28 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/20 15:23:41 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_push_a(t_info **stack)
 	t_node	*tmp;
 	t_node	*top;
 
-	if (!(*stack)->b_len)
+	if ((*stack)->b_len == 0)
 	{
 		return ;
 	}
@@ -27,6 +27,12 @@ void	ft_push_a(t_info **stack)
 	top->prev = tmp;
 	tmp->prev->next = tmp;
 	tmp->next = top;
+	if ((*stack)->b_len == 1)
+	{
+		(*stack)->b_head = NULL;
+	}
+	(*stack)->a_len += 1;
+	(*stack)->b_len -= 1;
 }
 
 void	ft_push_b(t_info **stack)
@@ -34,7 +40,7 @@ void	ft_push_b(t_info **stack)
 	t_node	*tmp;
 	t_node	*top;
 
-	if (!(*stack)->a_len)
+	if ((*stack)->a_len == 0)
 	{
 		return ;
 	}
@@ -44,4 +50,10 @@ void	ft_push_b(t_info **stack)
 	top->prev = tmp;
 	tmp->prev->next = tmp;
 	tmp->next = top;
+	if ((*stack)->b_len == 1)
+	{
+		(*stack)->b_head = NULL;
+	}
+	(*stack)->b_len += 1;
+	(*stack)->a_len -= 1;
 }
