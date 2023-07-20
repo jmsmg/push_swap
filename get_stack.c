@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 08:04:35 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/18 10:42:42 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/20 15:22:40 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_info	*ft_get_stack(int argc, char **argv)
 	stack->a_len = argc - 1;
 	stack->a_head = ft_input_arg(argc, argv);
 	stack->b_len = 0;
+	stack->b_head = NULL;
 
 	return (stack);
 }
