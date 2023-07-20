@@ -6,10 +6,9 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:08:18 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/14 10:32:37 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/20 16:19:25 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 static int	ft_isspace(char c)
 {
