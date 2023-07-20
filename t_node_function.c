@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:26 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/20 14:47:10 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/20 15:02:11 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_clear_node(t_node **node, void (*del)(t_node *cur))
 	t_node	*tmp;
 
 	tmp = *node;
-	if (*node)
+	if (!(*node))
 	{
 		return ;
 	}
