@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:26 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/18 09:26:19 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/20 14:47:10 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ void	ft_clear_node(t_node **node, void (*del)(t_node *cur))
 
 void	ft_delete_node(t_node *node)
 {
+	if (!node)
+	{
+		return ;
+	}
 	node->prev->next = node->next;
 	node->next->prev = node->prev;
-	node->data = 0;
-	node->prev = NULL;
-	node->next = NULL;
 	free(node);
 	node = NULL;
 }
