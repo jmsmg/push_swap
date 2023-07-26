@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:40 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/25 10:00:21 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/25 20:28:36 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ typedef struct s_node
 {
 	struct s_node	*prev;
 	int				data;
-	int				index;
 	struct s_node	*next;
 }	t_node;
 

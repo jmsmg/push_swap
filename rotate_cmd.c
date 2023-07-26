@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 14:58:53 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/25 08:24:19 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:53:33 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ra(t_info **stack)
 		return ;
 	}
 	(*stack)->a_head = (*stack)->a_head->next;
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_info **stack)
@@ -28,6 +29,7 @@ void	rb(t_info **stack)
 		return ;
 	}
 	(*stack)->b_head = (*stack)->b_head->next;
+	write(1, "ra\n", 3);
 }
 
 void	rr(t_info **stack)
