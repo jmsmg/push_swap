@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/14 12:46:59 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:29:36 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	ft_check_array(int *array, int size)
 		{
 			if (tmp == array[j])
 			{
-				return (0);
+				return (FALSE);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (TRUE);
 }
 
 int	ft_check_dup(int argc, char **argv)
@@ -44,7 +44,7 @@ int	ft_check_dup(int argc, char **argv)
 	array = (int *)malloc((sizeof(int) * argc) - 1);
 	if (!array)
 	{
-		return (0);
+		return (NULL);
 	}
 	i = 1;
 	while (i < argc)
@@ -55,10 +55,10 @@ int	ft_check_dup(int argc, char **argv)
 	if (!ft_check_array(array, argc))
 	{
 		free(array);
-		return (0);
+		return (FALSE);
 	}
 	free(array);
-	return (1);
+	return (TRUE);
 }
 
 int	ft_check_number(char *word)

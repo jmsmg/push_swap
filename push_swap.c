@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:36 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/25 20:24:48 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:28:27 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int	main(int argc, char *argv[])
 	{
 		return (write(2, "Error\n", 6));
 	}
-	ft_sort(stack);
+	ft_sort(stack, stack->a_len * 1 / 3, stack->a_len * 2 / 3);
 }

@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:40 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/25 20:28:36 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:27:26 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
+
+#define TRUE 1
+#define FALSE 0
 
 typedef struct s_node
 {
@@ -24,6 +27,7 @@ typedef struct s_node
 
 typedef struct s_info
 {
+	int				*array;
 	int				a_len;
 	struct s_node	*a_head;
 	int				b_len;

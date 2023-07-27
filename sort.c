@@ -6,45 +6,64 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:16:05 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/26 11:54:31 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:08:06 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	a_to_b(t_info **stack)
+void	b_to_a(t_info *stack, int pivot_a, int pivot_b)
 {
-	int	pivot_a;
-	int	pivot_b;
+	t_node	*a_top;
+	t_node	*b_top;
 
-	pivot_a = (*stack)->a_len * 1 / 3;
-	pivot_b = (*stack)->a_len * 2 / 3;
-	while ((*stack)->a_len)
+	pa(&stack);
+	while (stack->b_len)
 	{
-		if ((*stack)->a_len <= pivot_a)
+		a_top = stack->a_head;
+		b_top = stack->b_head;
+		if (b_top->data < a_top->data || a_top->prev->data < b_top->data)
 		{
-			pb(stack);
-		}
-		else if ((*stack)->a_head->data < pivot_a)
-		{
-			pb(stack);
-			rb(stack);
-		}
-		else if ((*stack)->a_head->data < pivot_b)
-		{
-			pb(stack);
+			pa(&stack);
 		}
 		else
 		{
-			ra(stack);
+
+		}
+
+	}
+}
+
+void	a_to_b(t_info *stack, int pivot_a, int pivot_b)
+{
+	while (stack->a_len)
+	{
+		if (stack->a_len <= pivot_a)
+		{
+			pb(&stack);
+		}
+		else if (stack->a_head->data < pivot_a)
+		{
+			pb(&stack);
+			rb(&stack);
+		}
+		else if (stack->a_head->data <= pivot_b)
+		{
+			pb(&stack);
+		}
+		else
+		{
+			ra(&stack);
 		}
 	}
 }
 
-void	ft_sort(t_info **stack)
+void	ft_sort(t_info *stack, int pivot_a, int pivot_b)
 {
-	/* 사이즈 3,5 일때 ? */
-	a_to_b(stack);
-	b_to_a(stack);
+	if (ft_execpt_case(stack, stack->a_len))
+	{
+		return ;
+	}
+	a_to_b(stack->a_head, pivot_a, pivot_b);
+	b_to_a(stack->a_head, pivot_a, pivot_b);
 }

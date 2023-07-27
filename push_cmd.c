@@ -6,13 +6,13 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 14:42:45 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/24 11:56:18 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:35:41 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_a(t_info **stack)
+void	pa(t_info **stack)
 {
 	t_node	*tmp;
 	t_node	*top;
@@ -36,7 +36,7 @@ void	ft_push_a(t_info **stack)
 	write(1, "pa\n", 3);
 }
 
-void	ft_push_b(t_info **stack)
+void	pb(t_info **stack)
 {
 	t_node	*tmp;
 	t_node	*top;

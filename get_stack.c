@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 08:04:35 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/25 10:54:07 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:32:39 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,11 @@ t_info	*ft_get_stack(int argc, char **argv, int *array)
 	stack->a_head = ft_input_arg(argc, argv);
 	stack->b_len = 0;
 	stack->b_head = NULL;
-	array = ft_get_sorted_number(argc - 1, argv);
+	stack->array = ft_get_sorted_number(argc - 1, argv);
 	if (!array)
 	{
 		return (NULL);
 	}
-	ft_data_to_idx(stack->a_head, stack->a_len, array);
-	free(array);
-	array = NULL;
+	ft_data_to_idx(stack->a_head, stack->a_len, stack->array);
 	return (stack);
 }
