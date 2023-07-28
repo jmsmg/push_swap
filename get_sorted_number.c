@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 08:41:35 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/25 10:57:46 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/28 11:29:19 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_swap(int *a, int *b)
 int	*ft_get_array(int size, char **argv)
 {
 	int	i;
-	int	j;
 	int	*number;
 
 	i = 0;
