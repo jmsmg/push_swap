@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:16:05 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/28 11:03:28 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/28 11:15:53 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,10 @@ void	b_to_a(t_info *stack, int pivot_a, int pivot_b)
 			ra(&stack);
 		}
 		else
-		{
 			ra(&stack);
-		}
 	}
 	while (!(stack->a_head->prev->data == (stack->a_len) - 1
-		&& stack->a_head->data == 0))
+			&& stack->a_head->data == 0))
 	{
 		ra(&stack);
 	}
