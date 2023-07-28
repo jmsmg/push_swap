@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 14:10:44 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/27 09:16:39 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/28 12:09:27 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void	sb(t_info **stack)
 
 void	ss(t_info **stack)
 {
-	ft_swap_a(stack);
-	ft_swap_b(stack);
+	sa(stack);
+	sb(stack);
 }
