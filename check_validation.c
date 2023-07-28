@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/28 11:18:35 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/28 11:28:03 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_check_number(char *word)
 	}
 	while (ft_isdigit(word[i]))
 		i++;
-	if (ft_strlen(word) == 0 || ft_strlen(word) != i || 1 < sign || 11 < i)
+	if (ft_strlen(word) == 0 || ft_strlen(word) != (int)i || 1 < sign || 11 < i)
 		return (0);
 	i = 0;
 	if (ft_atoi(word[i]) > 2147483647 && -2147483648 < ft_atoi(word[i]))
