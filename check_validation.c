@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/27 12:29:36 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/28 11:18:35 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_check_dup(int argc, char **argv)
 	array = (int *)malloc((sizeof(int) * argc) - 1);
 	if (!array)
 	{
-		return (NULL);
+		return (FALSE);
 	}
 	i = 1;
 	while (i < argc)
