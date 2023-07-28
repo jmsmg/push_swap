@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:16:05 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/27 16:08:06 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/28 11:03:28 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,38 @@
 
 void	b_to_a(t_info *stack, int pivot_a, int pivot_b)
 {
-	t_node	*a_top;
-	t_node	*b_top;
+	int	top_a;
+	int	top_b;
 
-	pa(&stack);
 	while (stack->b_len)
 	{
-		a_top = stack->a_head;
-		b_top = stack->b_head;
-		if (b_top->data < a_top->data || a_top->prev->data < b_top->data)
+		top_a = stack->a_head->data;
+		top_b = stack->b_head->data;
+		if (top_a - 1 == top_b
+			|| (top_b < top_a && stack->a_head->prev->data < top_b))
+		{
+			pa (&stack);
+		}
+		else if (stack->a_head->prev->data == top_b - 1)
 		{
 			pa(&stack);
+			ra(&stack);
 		}
 		else
 		{
-
+			ra(&stack);
 		}
-
+	}
+	while (!(stack->a_head->prev->data == (stack->a_len) - 1
+		&& stack->a_head->data == 0))
+	{
+		ra(&stack);
 	}
 }
 
 void	a_to_b(t_info *stack, int pivot_a, int pivot_b)
 {
-	while (stack->a_len)
+	while (stack->a_len != 3)
 	{
 		if (stack->a_len <= pivot_a)
 		{
@@ -56,6 +65,7 @@ void	a_to_b(t_info *stack, int pivot_a, int pivot_b)
 			ra(&stack);
 		}
 	}
+	size_three_case(stack, stack->array);
 }
 
 void	ft_sort(t_info *stack, int pivot_a, int pivot_b)

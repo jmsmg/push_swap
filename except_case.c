@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:50:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/27 13:31:42 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/28 09:38:28 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 int	size_three_case(t_info *stack, int *array)
 {
-	if (array[0] == 0)
+	if (array[0] < array[1] && array[0] < array[2])
 	{
-		if (array[2] == 2)
+		if (array[1] < array[2])
 		{
 			return (TRUE);
 		}
 		rra(&stack);
 	}
-	else if (array[0] == 2)
+	else if (array[1] < array[0] && array[2] < array[0])
 	{
-		if (array[2] == 0)
+		if (array[2] < array[1])
 		{
 			ra(&stack);
 			return (TRUE);
 		}
 		sa(&stack);
 	}
-	if (array[2] == 0)
+	if (array[2] < array[1] && array[2] < array[0])
 		rra(&stack);
 	else
 		sa(&sa);
