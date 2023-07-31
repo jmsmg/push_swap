@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:36 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/31 09:08:04 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/31 11:50:21 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char *argv[])
 {
 	t_info	*stack;
 
-	if (argc < 2 && !ft_check_validation(argc, argv))
+	if (argc < 2 || !ft_check_validation(argc, argv))
 	{
 		return (write(2, "Error\n", 6));
 	}

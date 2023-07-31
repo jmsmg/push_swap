@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 08:04:35 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/31 10:20:27 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/31 13:36:06 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_node	*ft_input_arg(int argc, char **argv)
 	int		i;
 	t_node	*node;
 
-	node = ft_created_node(ft_atoi(argv[argc - 1]));
+	node = ft_created_node(ft_atoi(argv[1]));
 	if (!node)
 	{
 		return (NULL);
@@ -47,9 +47,9 @@ t_node	*ft_input_arg(int argc, char **argv)
 	i = 2;
 	while (i < argc)
 	{
-		if (!ft_add_next_node(&node, ft_atoi(argv[argc - i - 2])))
+		if (!ft_add_next_node(node, ft_atoi(argv[i])))
 		{
-			ft_clear_node(&node, ft_delete_node);
+			ft_clear_node(node, ft_delete_node);
 			node = NULL;
 			break ;
 		}
@@ -61,7 +61,11 @@ t_info	*ft_get_stack(int argc, char **argv)
 {
 	t_info	*stack;
 
-	stack = NULL;
+	stack = (t_info*)malloc(sizeof(t_info));
+	if (!stack)
+	{
+		exit(1);
+	}
 	stack->a_len = argc - 1;
 	stack->a_head = ft_input_arg(argc, argv);
 	stack->b_len = 0;

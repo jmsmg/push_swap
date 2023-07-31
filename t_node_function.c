@@ -6,26 +6,26 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:26 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/31 10:34:11 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/31 13:06:23 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_clear_node(t_node **node, void (*del)(t_node *cur))
+void	ft_clear_node(t_node *node, void (*del)(t_node *cur))
 {
 	t_node	*tmp;
 
-	tmp = *node;
-	if (!(*node))
+	tmp = node;
+	if (!node)
 	{
 		return ;
 	}
 	while (tmp->next == NULL)
 	{
-		*node = (*node)->next;
+		node = node->next;
 		del(tmp);
-		tmp = *node;
+		tmp = node;
 	}
 }
 
@@ -41,23 +41,26 @@ void	ft_delete_node(t_node *node)
 	node = NULL;
 }
 
-int	ft_add_next_node(t_node **head, int data)
+int	ft_add_next_node(t_node *head, int data)
 {
 	t_node	*new_node;
 	t_node	*tail;
 
-	new_node = NULL;
-	new_node->data = data;
-	tail = (*head)->prev;
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 	{
 		return (0);
 	}
+	new_node->prev = NULL;
+	new_node->data = data;
+	new_node->next = NULL;
+
+	tail = head->prev;
+
 	tail->next = new_node;
 	new_node->prev = tail;
-	new_node->next = (*head);
-	(*head)->prev = new_node;
+	new_node->next = head;
+	head->prev = new_node;
 	return (1);
 }
 
