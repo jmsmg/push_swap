@@ -6,22 +6,22 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 14:10:44 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/28 12:09:27 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/31 10:33:48 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_info **stack)
+void	sa(t_info *stack)
 {
 	t_node	*head;
 	t_node	*tmp;
 
-	if ((*stack)->a_len < 2)
+	if (stack->a_len < 2)
 	{
 		return ;
 	}
-	head = (*stack)->a_head;
+	head = stack->a_head;
 	tmp = head->next;
 	tmp->next->prev = head;
 	head->next = tmp->next;
@@ -32,16 +32,16 @@ void	sa(t_info **stack)
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_info **stack)
+void	sb(t_info *stack)
 {
 	t_node	*head;
 	t_node	*tmp;
 
-	if ((*stack)->a_len < 2)
+	if (stack->a_len < 2)
 	{
 		return ;
 	}
-	head = (*stack)->b_head;
+	head = stack->b_head;
 	tmp = head->next;
 	tmp->next->prev = head;
 	head->next = tmp->next;
@@ -52,7 +52,7 @@ void	sb(t_info **stack)
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_info **stack)
+void	ss(t_info *stack)
 {
 	sa(stack);
 	sb(stack);

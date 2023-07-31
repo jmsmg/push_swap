@@ -6,13 +6,13 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:16:05 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/28 11:15:53 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/31 10:31:10 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	b_to_a(t_info *stack, int pivot_a, int pivot_b)
+void	b_to_a(t_info *stack)
 {
 	int	top_a;
 	int	top_b;
@@ -24,20 +24,20 @@ void	b_to_a(t_info *stack, int pivot_a, int pivot_b)
 		if (top_a - 1 == top_b
 			|| (top_b < top_a && stack->a_head->prev->data < top_b))
 		{
-			pa (&stack);
+			pa (stack);
 		}
 		else if (stack->a_head->prev->data == top_b - 1)
 		{
-			pa(&stack);
-			ra(&stack);
+			pa(stack);
+			ra(stack);
 		}
 		else
-			ra(&stack);
+			ra(stack);
 	}
 	while (!(stack->a_head->prev->data == (stack->a_len) - 1
 			&& stack->a_head->data == 0))
 	{
-		ra(&stack);
+		ra(stack);
 	}
 }
 
@@ -47,20 +47,20 @@ void	a_to_b(t_info *stack, int pivot_a, int pivot_b)
 	{
 		if (stack->a_len <= pivot_a)
 		{
-			pb(&stack);
+			pb(stack);
 		}
 		else if (stack->a_head->data < pivot_a)
 		{
-			pb(&stack);
-			rb(&stack);
+			pb(stack);
+			rb(stack);
 		}
 		else if (stack->a_head->data <= pivot_b)
 		{
-			pb(&stack);
+			pb(stack);
 		}
 		else
 		{
-			ra(&stack);
+			ra(stack);
 		}
 	}
 	size_three_case(stack, stack->array);
@@ -68,10 +68,10 @@ void	a_to_b(t_info *stack, int pivot_a, int pivot_b)
 
 void	ft_sort(t_info *stack, int pivot_a, int pivot_b)
 {
-	if (ft_execpt_case(stack, stack->a_len))
+	if (ft_check_except_case(stack, stack->a_len))
 	{
 		return ;
 	}
-	a_to_b(stack->a_head, pivot_a, pivot_b);
-	b_to_a(stack->a_head, pivot_a, pivot_b);
+	a_to_b(stack, pivot_a, pivot_b);
+	b_to_a(stack);
 }

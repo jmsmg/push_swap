@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 08:04:35 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/27 12:32:39 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/31 10:20:27 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ t_node	*ft_input_arg(int argc, char **argv)
 	i = 2;
 	while (i < argc)
 	{
-		if (!ft_add_next_node(node, ft_atoi(argv[argc - i - 2])))
+		if (!ft_add_next_node(&node, ft_atoi(argv[argc - i - 2])))
 		{
-			ft_clear_node(&node, ft_delete_node(node));
+			ft_clear_node(&node, ft_delete_node);
 			node = NULL;
 			break ;
 		}
@@ -57,20 +57,19 @@ t_node	*ft_input_arg(int argc, char **argv)
 	}
 	return (node);
 }
-
-t_info	*ft_get_stack(int argc, char **argv, int *array)
+t_info	*ft_get_stack(int argc, char **argv)
 {
-	int		*array;
 	t_info	*stack;
 
+	stack = NULL;
 	stack->a_len = argc - 1;
 	stack->a_head = ft_input_arg(argc, argv);
 	stack->b_len = 0;
 	stack->b_head = NULL;
 	stack->array = ft_get_sorted_number(argc - 1, argv);
-	if (!array)
+	if (!(stack->array))
 	{
-		return (NULL);
+		exit(1);
 	}
 	ft_data_to_idx(stack->a_head, stack->a_len, stack->array);
 	return (stack);

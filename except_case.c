@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:50:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/28 09:38:28 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/31 09:44:19 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ int	size_three_case(t_info *stack, int *array)
 		{
 			return (TRUE);
 		}
-		rra(&stack);
+		rra(stack);
 	}
 	else if (array[1] < array[0] && array[2] < array[0])
 	{
 		if (array[2] < array[1])
 		{
-			ra(&stack);
+			ra(stack);
 			return (TRUE);
 		}
-		sa(&stack);
+		sa(stack);
 	}
 	if (array[2] < array[1] && array[2] < array[0])
-		rra(&stack);
+		rra(stack);
 	else
-		sa(&sa);
+		sa(stack);
 	return (TRUE);
 }
 
@@ -46,7 +46,7 @@ int	size_two_case(t_info *stack, int *array)
 	}
 	else
 	{
-		sa(&stack);
+		sa(stack);
 		return (TRUE);
 	}
 }

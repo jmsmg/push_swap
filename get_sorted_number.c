@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 08:41:35 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/28 11:29:19 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/31 09:52:13 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	*ft_get_sorted_number(int size, char **argv)
 		{
 			if (array[i] > array[j])
 			{
-				ft_swap(array[i], array[j]);
+				ft_swap(array + i, array + j);
 			}
 			j++;
 		}
