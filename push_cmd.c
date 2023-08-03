@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 14:42:45 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/03 18:07:51 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/03 19:23:40 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	pa(t_info *stack)
 	t_node	*tmp;
 
 	tmp = stack->b_head;
-	if (stack->b_len == 0)
+	if (stack->a_len == 0)
 		return ;
 	stack->b_head = stack->b_head->next;
 	if (stack->b_len == 1)
@@ -34,14 +34,15 @@ void	pa(t_info *stack)
 	}
 	else
 	{
-		stack->a_head->prev->next = tmp;
 		tmp->prev = stack->a_head->prev;
-		stack->a_head->next->prev = tmp;
 		tmp->next = stack->a_head;
+		stack->a_head->prev = tmp;
+		tmp->prev->next = tmp;
 		stack->a_head = tmp;
 	}
 	write(1, "pa\n", 3);
 }
+
 
 
 void	pb(t_info *stack)
@@ -67,7 +68,7 @@ void	pb(t_info *stack)
 	else
 	{
 		tmp->prev = stack->b_head->prev;
-		tmp->next = stack->b_head->next;
+		tmp->next = stack->b_head;
 		stack->b_head->prev = tmp;
 		tmp->prev->next = tmp;
 		stack->b_head = tmp;
