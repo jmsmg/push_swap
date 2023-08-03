@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:16:05 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/31 10:31:10 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:06:55 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	b_to_a(t_info *stack)
 		if (top_a - 1 == top_b
 			|| (top_b < top_a && stack->a_head->prev->data < top_b))
 		{
-			pa (stack);
+			pa(stack);
 		}
 		else if (stack->a_head->prev->data == top_b - 1)
 		{
@@ -63,7 +63,7 @@ void	a_to_b(t_info *stack, int pivot_a, int pivot_b)
 			ra(stack);
 		}
 	}
-	size_three_case(stack, stack->array);
+	size_three_case(stack, stack->a_head);
 }
 
 void	ft_sort(t_info *stack, int pivot_a, int pivot_b)

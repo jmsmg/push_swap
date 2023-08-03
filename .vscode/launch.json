@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": ["1", "0", "3", "4", "5", "7", "8", "9"],
+      "cwd": "/Users/gon/Desktop/push_swap",
+      "program": "/Users/gon/Desktop/push_swap/a.out"
+    }
+  ]
+}

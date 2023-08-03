@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/31 09:25:34 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/03 15:39:56 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_check_array(int *array, int size)
 	int	tmp;
 
 	i = 0;
+
 	while (i < size)
 	{
 		j = i + 1;
@@ -52,7 +53,7 @@ int	ft_check_dup(int argc, char **argv)
 		array[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
-	if (!ft_check_array(array, argc))
+	if (!ft_check_array(array, argc - 1))
 	{
 		free(array);
 		return (FALSE);
@@ -97,6 +98,8 @@ int	ft_check_validation(int argc, char **argv)
 		i++;
 	}
 	if (!ft_check_dup(argc, argv))
+	{
 		return (0);
+	}
 	return (1);
 }

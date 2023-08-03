@@ -6,41 +6,43 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:50:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/31 09:44:19 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/03 15:27:05 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	size_three_case(t_info *stack, int *array)
+int	size_three_case(t_info *stack, t_node *a)
 {
-	if (array[0] < array[1] && array[0] < array[2])
+	if (a->data < a->next->data && a->data < a->prev->data)
 	{
-		if (array[1] < array[2])
+		if (a->next->data < a->prev->data)
 		{
 			return (TRUE);
 		}
 		rra(stack);
 	}
-	else if (array[1] < array[0] && array[2] < array[0])
+	else if (a->next->data < a->data && a->prev->data < a->data)
 	{
-		if (array[2] < array[1])
+		if (a->next->data < a->prev->data)
 		{
-			ra(stack);
-			return (TRUE);
+			rra(stack);
 		}
-		sa(stack);
+		else
+		{
+			sa(stack);
+		}
 	}
-	if (array[2] < array[1] && array[2] < array[0])
+	if (a->data < a->next->data)
 		rra(stack);
 	else
 		sa(stack);
 	return (TRUE);
 }
 
-int	size_two_case(t_info *stack, int *array)
+int	size_two_case(t_info *stack)
 {
-	if (array[0] < array[1])
+	if (stack->a_head->data < stack->a_head->next->data)
 	{
 		return (TRUE);
 	}
@@ -59,11 +61,11 @@ int	ft_check_except_case(t_info *stack, int size)
 	}
 	else if (size == 2)
 	{
-		return (size_two_case(stack, stack->array));
+		return (size_two_case(stack));
 	}
 	else if (size == 3)
 	{
-		return (size_three_case(stack, stack->array));
+		return (size_three_case(stack, stack->a_head));
 	}
 	return (FALSE);
 }

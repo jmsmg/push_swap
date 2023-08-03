@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:40 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/31 12:28:19 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/07/31 19:10:33 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ void	a_to_b(t_info *stack, int pivot_a, int pivot_b);
 void	b_to_a(t_info *stack);
 
 int		ft_check_except_case(t_info *stack, int size);
-int		size_three_case(t_info *stack, int *array);
-int		size_two_case(t_info *stack, int *array);
+int		size_two_case(t_info *stack);
+int		size_three_case(t_info *stack, t_node *a);
 
 #endif
 
