@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/03 15:39:56 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/07 13:09:17 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	ft_check_number(char *word)
 	if (ft_strlen(word) == 0 || ft_strlen(word) != i || 1 < sign || 11 < i)
 		return (0);
 	i = 0;
-	if (ft_atoi(word) > 2147483647 && -2147483648 < ft_atoi(word))
+	if (ft_atoi(word) < -2147483648 || 2147483647 < ft_atoi(word))
 		return (0);
 	return (1);
 }
