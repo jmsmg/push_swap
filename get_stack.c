@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 08:04:35 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/31 13:36:06 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/07 14:35:06 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_node	*ft_input_arg(int argc, char **argv)
 	node = ft_created_node(ft_atoi(argv[1]));
 	if (!node)
 	{
+		ft_error();
 		return (NULL);
 	}
 	i = 2;
@@ -51,6 +52,7 @@ t_node	*ft_input_arg(int argc, char **argv)
 		{
 			ft_clear_node(node, ft_delete_node);
 			node = NULL;
+			ft_error();
 			break ;
 		}
 		i++;
@@ -73,7 +75,7 @@ t_info	*ft_get_stack(int argc, char **argv)
 	stack->array = ft_get_sorted_number(argc - 1, argv);
 	if (!(stack->array))
 	{
-		exit(1);
+		ft_error();
 	}
 	ft_data_to_idx(stack->a_head, stack->a_len, stack->array);
 	return (stack);

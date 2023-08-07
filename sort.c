@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:16:05 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/03 19:22:51 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:24:20 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,19 @@ void	b_to_a(t_info *stack)
 	{
 		top_a = stack->a_head->data;
 		top_b = stack->b_head->data;
-		if (top_a - 1 == top_b
-			|| (top_b < top_a && stack->a_head->prev->data < top_b))
+		if (top_a < top_b)
 		{
 			pa(stack);
 		}
-		else if (stack->a_head->prev->data == top_b - 1)
+		else if (stack->a_head->prev->data < top_b)
 		{
 			pa(stack);
 			ra(stack);
 		}
 		else
-			ra(stack);
+			rb(stack);
 	}
-	while (!(stack->a_head->prev->data == (stack->a_len) - 1
-			&& stack->a_head->data == 0))
+	while (stack->a_head->data == 0)
 	{
 		ra(stack);
 	}

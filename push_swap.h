@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:40 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/07 13:12:06 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/07 14:32:43 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+void		ft_error(void);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
