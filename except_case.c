@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:50:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/03 15:27:05 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/07 12:50:01 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	size_three_case(t_info *stack, t_node *a)
 			sa(stack);
 		}
 	}
-	if (a->data < a->next->data)
+	if (stack->a_head->data < stack->a_head->next->data)
 		rra(stack);
 	else
 		sa(stack);
