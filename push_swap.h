@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:40 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/07 14:32:43 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:30:18 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ void		rrr(t_info *stack);
 void		ft_sort(t_info *stack, int pivot_a, int pivot_b);
 void		a_to_b(t_info *stack, int pivot_a, int pivot_b);
 void		b_to_a(t_info *stack);
+int			check_rb_or_rrb(t_node *b, int max, int len, int flag);
+void		execute_cmd(t_info *stack, int rb_cnt, int rrb_cnt);
+int			find_max(t_node *b, int len);
 
 int			ft_check_except_case(t_info *stack, int size);
 int			size_two_case(t_info *stack);

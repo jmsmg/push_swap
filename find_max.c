@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_cmd.c                                      :+:      :+:    :+:   */
+/*   find_max.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/20 16:04:20 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/09 12:35:03 by seonggoc         ###   ########.fr       */
+/*   Created: 2023/08/09 09:33:12 by seonggoc          #+#    #+#             */
+/*   Updated: 2023/08/09 12:22:45 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_info *stack)
+int	find_max(t_node *b, int len)
 {
-	if (stack->a_len < 2)
-	{
-		return ;
-	}
-	stack->a_head = stack->a_head->prev;
-	write(1, "rra\n", 4);
-}
+	int		i;
+	int		max;
+	t_node *cur;
 
-void	rrb(t_info *stack)
-{
-	if (stack->b_len < 2)
+	i = 0;
+	max = 0;
+	cur = b;
+	while (i < len)
 	{
-		return ;
+		if (max < cur->data)
+		{
+			max = cur->data;
+		}
+		i++;
+		cur = cur->next;
 	}
-	stack->b_head = stack->b_head->prev;
-	write(1, "rrb\n", 4);
-}
-
-void	rrr(t_info *stack)
-{
-	rra(stack);
-	rrb(stack);
+	return (max);
 }

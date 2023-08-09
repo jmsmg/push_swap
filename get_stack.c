@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 08:04:35 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/07 14:35:06 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:21:54 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_info	*ft_get_stack(int argc, char **argv)
 	stack = (t_info*)malloc(sizeof(t_info));
 	if (!stack)
 	{
-		exit(1);
+		ft_error();
 	}
 	stack->a_len = argc - 1;
 	stack->a_head = ft_input_arg(argc, argv);
