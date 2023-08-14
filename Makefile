@@ -1,41 +1,28 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
-LIBRARY = libft/libft.a
-SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c \
-		ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c \
-		ft_strncmp.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_memchr.c \
-		ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c \
-		ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
-		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-INCLUDED = libft/libft.h
-OBJS = libft/$(SRCS:.c=.o)
-OBJS_BONUS = libft/$(SRCS_BONUS:.c=.o)
+OBJS = $(SRCS:.c=.o)
+LIBFT_PATH = libft
+SRCS = push_swap.c check_validation.c except_case.c execute_cmd.c \
+		get_sorted_number.c get_stack.c push_cmd.c reverse_cmd.c \
+		rotate_cmd.c sort.c swap_cmd.c t_node_function.c
 
-ifdef WITH_BONUS
-	OBJ_FILES = $(OBJS) $(OBJS_BONUS)
-else
-	OBJ_FILES = $(OBJS)
-endif
+%.o: %.c
+	$(CC) $(CFLAGS) -I $(LIBFT_PATH) -o $@ -c $<
 
-%.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDED)
-
-$(NAME) : $(OBJ_FILES)
-	ar -rc $@ $(OBJ_FILES)
+$(NAME): $(OBJS)
+	cd libft && make
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH)/libft.a -o $(NAME)
 
 all : $(NAME)
 
 clean :
-	rm -f $(OBJS) $(OBJS_BONUS)
+	cd libft && make clean
+	rm -f $(OBJS)
 
 fclean : clean
+	cd libft && make fclean
 	rm -f $(NAME)
-
-bonus :
-	make WITH_BONUS=1 all
 
 re : fclean all
 
