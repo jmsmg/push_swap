@@ -6,13 +6,13 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:40 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/14 13:10:20 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:06:31 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include "libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # define TRUE 1
@@ -53,7 +53,7 @@ t_node	*ft_created_node(int data);
 int		ft_add_next_node(t_node *head, int data);
 void	ft_delete_node(t_node *node);
 void	ft_clear_node(t_node *node, void (*del)(t_node *cur));
-
+int		*ft_range(int size);
 void	sa(t_info *stack);
 void	sb(t_info *stack);
 void	ss(t_info *stack);
@@ -69,11 +69,12 @@ void	rrr(t_info *stack);
 void	ft_sort(t_info *stack, int pivot_a, int pivot_b);
 void	a_to_b(t_info *stack, int pivot_a, int pivot_b);
 void	b_to_a(t_info *stack);
-
+int		check_cnt_rotate(t_info *stack, t_node *a, t_node *b);
 void	ft_execute(t_info *stack, int *array, int cmd);
 int		ft_get_cmd(t_info *stack, int *array);
 
 int		ft_check_except_case(t_info *stack, int size);
 int		size_two_case(t_info *stack);
 int		size_three_case(t_info *stack, t_node *a);
+int		ft_sorted_case(t_node *head, t_node *tail);
 #endif

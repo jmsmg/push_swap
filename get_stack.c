@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 08:04:35 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/09 12:21:54 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/14 16:24:39 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,12 @@ t_node	*ft_input_arg(int argc, char **argv)
 	}
 	return (node);
 }
+
 t_info	*ft_get_stack(int argc, char **argv)
 {
 	t_info	*stack;
 
-	stack = (t_info*)malloc(sizeof(t_info));
+	stack = (t_info *)malloc(sizeof(t_info));
 	if (!stack)
 	{
 		ft_error();

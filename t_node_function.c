@@ -6,11 +6,23 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:26 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/31 13:06:23 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:07:51 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	*ft_range(int size)
+{
+	int	*tmp;
+
+	tmp = malloc(sizeof(size));
+	if (!tmp)
+	{
+		ft_error();
+	}
+	return (tmp);
+}
 
 void	ft_clear_node(t_node *node, void (*del)(t_node *cur))
 {
@@ -54,9 +66,7 @@ int	ft_add_next_node(t_node *head, int data)
 	new_node->prev = NULL;
 	new_node->data = data;
 	new_node->next = NULL;
-
 	tail = head->prev;
-
 	tail->next = new_node;
 	new_node->prev = tail;
 	new_node->next = head;

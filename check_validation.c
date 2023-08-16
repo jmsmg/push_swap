@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/07 13:09:17 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:57:38 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	ft_check_array(int *array, int size)
 	int	tmp;
 
 	i = 0;
-
 	while (i < size)
 	{
 		j = i + 1;

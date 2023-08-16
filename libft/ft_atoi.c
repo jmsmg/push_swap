@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:08:18 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/07/31 10:40:14 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:53:13 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static int	ft_isspace(char c)
 
 long long	ft_atoi(const char *str)
 {
-	int		i;
-	int		sign;
-	long	answer;
+	int			i;
+	int			sign;
+	long long	answer;
 
 	i = 0;
 	sign = 1;

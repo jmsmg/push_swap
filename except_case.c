@@ -6,11 +6,27 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:50:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/07 12:50:01 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 16:43:57 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_sorted_case(t_node *head, t_node *tail)
+{
+	t_node	*tmp;
+
+	tmp = head;
+	while (tmp->data != tail->data)
+	{
+		if ((tmp->data) + 1 != (tmp->next->data))
+		{
+			return (FALSE);
+		}
+		tmp = tmp->next;
+	}
+	return (TRUE);
+}
 
 int	size_three_case(t_info *stack, t_node *a)
 {
@@ -67,5 +83,5 @@ int	ft_check_except_case(t_info *stack, int size)
 	{
 		return (size_three_case(stack, stack->a_head));
 	}
-	return (FALSE);
+	return (ft_sorted_case(stack->a_head, stack->a_head->prev));
 }

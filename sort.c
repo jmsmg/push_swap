@@ -6,22 +6,20 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:16:05 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/14 12:22:46 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:56:12 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_cnt_rotate(t_info *stack, t_node *a)
+int	check_cnt_rotate(t_info *stack, t_node *a, t_node *b)
 {
-	int	i;
-	int	tmp;
-	t_node *b;
+	int		i;
+	int		tmp;
 
-	i = 0;
+	i = -1;
 	tmp = stack->b_len + 1;
-	b = stack->b_head;
-	while (i < stack->b_len)
+	while (++i < stack->b_len)
 	{
 		if (a->prev->data < b->data && b->data < a->data)
 		{
@@ -39,23 +37,25 @@ int	check_cnt_rotate(t_info *stack, t_node *a)
 				tmp = i;
 		}
 		b = b->next;
-		i++;
 	}
 	return (tmp);
 }
 
-void	ft_find_optimal(t_info *stack)
+void	ft_find_optimal(t_info *stack, int size)
 {
-	int	i;
-	int	tmp;
-	int	array[stack->a_len + stack->b_len];
+	int		i;
+	int		tmp;
+	int		*array;
 	t_node	*a;
+	t_node	*b;
 
 	i = 0;
+	array = ft_range(size);
 	a = stack->a_head;
 	while (i < stack->a_len)
 	{
-		array[i] = check_cnt_rotate(stack, a);
+		b = stack->b_head;
+		array[i] = check_cnt_rotate(stack, a, b);
 		a = a->next;
 		i++;
 	}
@@ -65,10 +65,9 @@ void	ft_find_optimal(t_info *stack)
 
 void	b_to_a(t_info *stack)
 {
-
 	while (stack->b_len != 0)
 	{
-		ft_find_optimal(stack);
+		ft_find_optimal(stack, stack->a_len + stack->b_len);
 	}
 	while (stack->a_head->data != 0)
 	{
