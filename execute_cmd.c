@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 19:28:57 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/16 17:59:16 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:04:53 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,11 @@ void	ft_execute(t_info *stack, int *array, int cmd)
 	pa(stack);
 }
 
-int	ft_get_cmd(t_info *stack, int *array)
+int	ft_get_cmd(t_info *stack, int *array, int i)
 {
-	int	i;
 	int	cmd;
 	int	tmp;
 
-	i = 0;
 	cmd = 0;
 	tmp = 2147483647;
 	while (i < stack->a_len)
@@ -76,21 +74,15 @@ int	ft_get_cmd(t_info *stack, int *array)
 			i++;
 			continue ;
 		}
-		else if (i <= stack->a_len / 2)
+		else if (i <= stack->a_len / 2 && i + array[i] < tmp)
 		{
-			if (i + array[i] < tmp)
-			{
-				tmp = i + array[i];
-				cmd = i;
-			}
+			tmp = i + array[i];
+			cmd = i;
 		}
-		else if (stack->a_len / 2 < i)
+		else if (stack->a_len / 2 < i && stack->a_len - i + array[i] < tmp)
 		{
-			if (stack->a_len - i + array[i] < tmp)
-			{
-				tmp = stack->a_len - i + array[i];
-				cmd = i;
-			}
+			tmp = stack->a_len - i + array[i];
+			cmd = i;
 		}
 		i++;
 	}
