@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:16:05 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/16 17:56:12 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 18:17:34 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,15 @@ int	check_cnt_rotate(t_info *stack, t_node *a, t_node *b)
 	return (tmp);
 }
 
-void	ft_find_optimal(t_info *stack, int size)
+void	ft_find_optimal(t_info *stack)
 {
 	int		i;
 	int		tmp;
-	int		*array;
+	int		array[5000];
 	t_node	*a;
 	t_node	*b;
 
 	i = 0;
-	array = ft_range(size);
 	a = stack->a_head;
 	while (i < stack->a_len)
 	{
@@ -67,7 +66,7 @@ void	b_to_a(t_info *stack)
 {
 	while (stack->b_len != 0)
 	{
-		ft_find_optimal(stack, stack->a_len + stack->b_len);
+		ft_find_optimal(stack);
 	}
 	while (stack->a_head->data != 0)
 	{

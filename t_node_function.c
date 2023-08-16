@@ -6,23 +6,11 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:26 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/16 17:07:51 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 18:15:32 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	*ft_range(int size)
-{
-	int	*tmp;
-
-	tmp = malloc(sizeof(size));
-	if (!tmp)
-	{
-		ft_error();
-	}
-	return (tmp);
-}
 
 void	ft_clear_node(t_node *node, void (*del)(t_node *cur))
 {
