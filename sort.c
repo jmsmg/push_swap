@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:16:05 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/16 18:17:34 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:16:22 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_find_optimal(t_info *stack)
 		a = a->next;
 		i++;
 	}
-	tmp = ft_get_cmd(stack, array);
+	tmp = ft_get_cmd(stack, array, 0);
 	ft_execute(stack, array, tmp);
 }
 
@@ -80,16 +80,19 @@ void	a_to_b(t_info *stack, int pivot_a, int pivot_b)
 	{
 		if (stack->a_len <= pivot_a)
 		{
-			pb(stack);
+			if (stack->a_len != 0)
+				pb(stack);
 		}
 		else if (stack->a_head->data < pivot_a)
 		{
-			pb(stack);
+			if (stack->a_len != 0)
+				pb(stack);
 			rb(stack);
 		}
 		else if (stack->a_head->data <= pivot_b)
 		{
-			pb(stack);
+			if (stack->a_len != 0)
+				pb(stack);
 		}
 		else
 		{

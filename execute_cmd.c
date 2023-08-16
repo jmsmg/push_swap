@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 19:28:57 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/16 19:04:53 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:14:50 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	ft_execute(t_info *stack, int *array, int cmd)
 		else
 			break ;
 	}
-	pa(stack);
+	if (stack->b_len != 0)
+		pa(stack);
 }
 
 int	ft_get_cmd(t_info *stack, int *array, int i)

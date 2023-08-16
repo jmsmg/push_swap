@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:01:40 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/16 18:17:19 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:04:27 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	a_to_b(t_info *stack, int pivot_a, int pivot_b);
 void	b_to_a(t_info *stack);
 int		check_cnt_rotate(t_info *stack, t_node *a, t_node *b);
 void	ft_execute(t_info *stack, int *array, int cmd);
-int		ft_get_cmd(t_info *stack, int *array);
+int		ft_get_cmd(t_info *stack, int *array, int i);
 
 int		ft_check_except_case(t_info *stack, int size);
 int		size_two_case(t_info *stack);
