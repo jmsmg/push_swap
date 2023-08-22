@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:16:05 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/16 19:16:22 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/22 10:54:43 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_find_optimal(t_info *stack)
 {
 	int		i;
 	int		tmp;
-	int		array[5000];
+	int		array[262144];
 	t_node	*a;
 	t_node	*b;
 
