@@ -6,29 +6,14 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 19:28:57 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/08/16 19:14:50 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/08/22 10:10:47 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_execute(t_info *stack, int *array, int cmd)
+void	ft_execute_rb_rrb(t_info *stack, int *array, int tmp)
 {
-	int	tmp;
-
-	tmp = cmd;
-	while (cmd && cmd < stack->a_len / 2 && 0 < array[tmp])
-	{
-		rr(stack);
-		array[tmp]--;
-		cmd--;
-	}
-	while (array[tmp] < 0 && stack->a_len / 2 < cmd)
-	{
-		rrr(stack);
-		array[tmp]++;
-		cmd++;
-	}
 	while (array[tmp] != 0)
 	{
 		if (array[tmp] < 0)
@@ -42,6 +27,32 @@ void	ft_execute(t_info *stack, int *array, int cmd)
 			array[tmp]--;
 		}
 	}
+}
+
+int	ft_execute_rr_rrr(t_info *stack, int *array, int cmd, int tmp)
+{
+	while (cmd && cmd < stack->a_len / 2 && 0 < array[tmp])
+	{
+		rr(stack);
+		array[tmp]--;
+		cmd--;
+	}
+	while (array[tmp] < 0 && stack->a_len / 2 < cmd)
+	{
+		rrr(stack);
+		array[tmp]++;
+		cmd++;
+	}
+	return (cmd);
+}
+
+void	ft_execute(t_info *stack, int *array, int cmd)
+{
+	int	tmp;
+
+	tmp = cmd;
+	cmd = ft_execute_rr_rrr(stack, array, cmd, tmp);
+	ft_execute_rb_rrb(stack, array, tmp);
 	while (0 < cmd && cmd < stack->a_len)
 	{
 		if (cmd <= stack->a_len / 2)
